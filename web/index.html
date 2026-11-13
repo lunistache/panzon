@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panzon</title>
+  <meta name="description" content="Panzon: tiramisù hecho en Querétaro y talleres de cocina italiana.">
+  <meta name="theme-color" content="#F5EDE0">
+  <meta property="og:title" content="Panzon">
+  <meta property="og:description" content="Tiramisù hecho en Querétaro y talleres de cocina italiana.">
+  <meta property="og:image" content="assets/img/og.jpg">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('panzon-theme'); } catch (e) {}
+      var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      document.documentElement.classList.add('is-loading');
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Fraunces:ital,opsz,wght@1,9..144,400..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <noscript><style>.loader{display:none}</style></noscript>
+</head>
+<body class="page-home">
+
+  <div class="loader" id="loader" role="status" aria-label="Cargando">
+    <div class="loader__lion">
+      <img class="only-light" src="assets/img/lion-black.png" alt="" width="688" height="496">
+      <img class="only-dark" src="assets/img/lion-white.png" alt="" width="688" height="496">
+    </div>
+    <div class="loader__shadow"></div>
+  </div>
+
+  <header class="header">
+    <a class="brand" href="index.html" aria-label="Panzon, inicio">
+      <img class="only-light" src="assets/img/lion-black.png" alt="" width="688" height="496">
+      <img class="only-dark" src="assets/img/lion-white.png" alt="" width="688" height="496">
+      <span>Panzon</span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="tiramisu.html">Tiramisù</a>
+      <a href="taller.html">Taller</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar entre tema claro y oscuro">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3 17 7M7 17l-1.7 1.7"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main class="home">
+    <div class="home__logo">
+      <img class="only-light" src="assets/img/lion-black.png" alt="Panzon: un león alado y barrigón" width="688" height="496">
+      <img class="only-dark" src="assets/img/lion-white.png" alt="Panzon: un león alado y barrigón" width="688" height="496">
+    </div>
+    <div class="home__shadow" aria-hidden="true"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
