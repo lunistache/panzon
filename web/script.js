@@ -41,11 +41,14 @@
     applyTheme(next);
     try { localStorage.setItem('panzon-theme', next); } catch (e) {}
   });
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+  // Keep every open page (and pages restored by the back button) on the chosen theme
+  function syncTheme() {
     var saved = null;
-    try { saved = localStorage.getItem('panzon-theme'); } catch (err) {}
-    if (!saved) applyTheme(e.matches ? 'dark' : 'light');
-  });
+    try { saved = localStorage.getItem('panzon-theme'); } catch (e) {}
+    if (saved && saved !== root.getAttribute('data-theme')) applyTheme(saved);
+  }
+  window.addEventListener('storage', function (e) { if (e.key === 'panzon-theme') syncTheme(); });
+  window.addEventListener('pageshow', syncTheme);
 
   /* ── Tiramisù order form ── */
   var form = document.getElementById('orderForm');
